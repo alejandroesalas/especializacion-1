@@ -17,7 +17,6 @@ public final class LineaInvestigacion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
     public boolean isActiva() {
         return activa;
     }

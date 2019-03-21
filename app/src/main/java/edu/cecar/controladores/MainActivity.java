@@ -12,8 +12,11 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText teSexo;
     private TextInputEditText teCategoria;
 
-    String url = "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001007017";
-
+    String url_uno = "https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001578518";
+    String url_dos = "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180";
+    String url_tres = "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001007017";
+    String url_cuatro = "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478";
+    String url_cinco = "https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001480575";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +45,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Investigador investigador = ExtraerDatoCVLAC.getDatos(url);
+                Investigador investigador = ExtraerDatoCVLAC.getDatos(url_cuatro);
                 adicionarDatosCasillasTexto(investigador);
-
             }
-
         }).start();
 
     }
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 teNacionalidad.setText(investigador.getNacionalidad());
                 teSexo.setText(investigador.getSexo());
                 teCategoria.setText(investigador.isCategorizado() ? "Si" : "No");
+
 
             }
         });

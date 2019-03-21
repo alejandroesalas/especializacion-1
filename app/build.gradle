@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "edu.cecar.controladores"
-        minSdkVersion 23
+        minSdkVersion 20
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -62,11 +62,11 @@ android {
 
 sonarqube {
     properties {
-        property "sonar.projectName", "MiPrimerProyecto2"
+        property "sonar.projectName", "CvlacProject"
         property "sonar.projectKey", "edu.cecar.extraerDatos"
         property "sonar.projectVersion", "1.0"
         property "sonar.sourceEncoding", "UTF-8"
-        property "sonar.host.url", "http://10.10.90.43:9000"
+        property "sonar.host.url", "http://:9000"
         property "sonar.language", "java"
         property "sonar.sources", "src/main/java"
         property "sonar.login", "admin"

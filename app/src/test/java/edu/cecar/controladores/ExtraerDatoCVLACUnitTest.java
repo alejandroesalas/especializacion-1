@@ -1,5 +1,7 @@
 package edu.cecar.controladores;
 
+import android.util.Log;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -16,12 +18,19 @@ import static org.junit.Assert.*;
  */
 public class ExtraerDatoCVLACUnitTest {
     private List<Investigador> investigadores;
-    private String urls[] = {"http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707",
-    "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132"};
+    private String urls[] = {"https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001578518",
+    "https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180",
+    "https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001480575"};
     @Before
     public  void setUpClass() {
         investigadores = new ArrayList<>();
-        //investigadores.add(new Investigador())
+        investigadores.add(new Investigador("MIGUEL ANGEL ROMERO GARAVITO",
+                "Colombiana","Masculino",false));
+        investigadores.add(new Investigador("Jhon Jaime Mendez Alandete",
+                "Colombiana","Masculino",false));
+        investigadores.add(new Investigador("INGRID JOHANNA ROMERO LAZARO",
+                "Colombiana","Masculino",false));
+        //
     }
     @Rule
     public GestionTestExtraerDatosCVLAC gestionTestExtraerDatosCVLAC = new GestionTestExtraerDatosCVLAC();
@@ -30,30 +39,17 @@ public class ExtraerDatoCVLACUnitTest {
 
     @Test
     public void testDatosCVLAC() {
-      /*
-         Investigador investigador1 = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
-        Investigador investigador2 = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
 
-        //Se definen los datos esperados
-        String nombreInvestigador1 = "Guillermo Carlos Hernández Hernández";
-        String nombreInvestigador2 = "Namuel Francisco Solórzano Peralta";
-
+         Investigador garavito = ExtraerDatoCVLAC.getDatos("https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001578518");
+         Investigador Jhon = ExtraerDatoCVLAC.getDatos(urls[1]);
+        Investigador Ingrid = ExtraerDatoCVLAC.getDatos(urls[2]);
         // Se comprueba o testea el valor esperado con el obtenido
-        assertEquals(nombreInvestigador1, investigador1.getNombres());
-        assertEquals(nombreInvestigador2, investigador2.getNombres());
+        assertEquals(garavito.getNombres(), investigadores.get(0).getNombres());
+        assertEquals(Jhon.getNombres(), investigadores.get(1).getNombres());
+        assertEquals(Ingrid.getNombres(), investigadores.get(2).getNombres());
 
-       */
+        //Lineas de investigacion
 
      
-    }
-
-    @Test
-    public void testDatosCvlac() {
-        // Se obtienen los datos del investigador
-        Investigador investigador = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
-        //Se definen los datos esperados
-        String nombreInvestigador = "Luty Del Carmen Gomezcaceres Peréz";
-        // Se comprueba o testea el valor esperado con el obtenido
-        assertEquals(nombreInvestigador, investigador.getNombres());
     }
 }
