@@ -89,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-
                 teNombres.setText(investigador.getNombres());
                 teNacionalidad.setText(investigador.getNacionalidad());
                 teSexo.setText(investigador.getSexo());
