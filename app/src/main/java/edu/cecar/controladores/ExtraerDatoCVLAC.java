@@ -51,7 +51,7 @@ public class ExtraerDatoCVLAC {
                     if(tr.text().equalsIgnoreCase("Líneas de investigación")){
                         Elements listas = tablas.get(i).select("li");
                         for (Element lista : listas) {
-                            Log.i("dato lista",lista.text());
+                            //Log.i("dato lista",lista.text());
                             List<TextNode> nodos = lista.textNodes();
                             boolean isActivo = nodos.get(1).text().equalsIgnoreCase("Si");
                             lineas.add(new LineaInvestigacion(nodos.get(0).text(),isActivo));
