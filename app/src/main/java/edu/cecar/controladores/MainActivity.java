@@ -9,9 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.IOException;
-import java.util.List;
 
 import edu.cecar.adapterts.MyAdapterLineaInvestigacion;
 
@@ -87,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
                 mRecyclerView.setItemAnimator(new DefaultItemAnimator());
                 mRecyclerView.setLayoutManager(mLayoutManager);
                 mRecyclerView.setAdapter(mAdapter);
-
 
             }
         });

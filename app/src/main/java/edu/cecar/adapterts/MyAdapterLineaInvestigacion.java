@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.List;
-
 import edu.cecar.controladores.LineaInvestigacion;
 import edu.cecar.controladores.R;
 
@@ -19,7 +17,6 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
     public MyAdapterLineaInvestigacion(List<LineaInvestigacion> lineaInvestigacions, int layout) {
         this.lineaInvestigacions = lineaInvestigacions;
         this.layout = layout;
-
     }
 
     @NonNull
@@ -54,7 +51,6 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
             this.textViewActivo.setText(lineaInvestigacion.isActiva()?"Activo":"No Activo");
         }
     }
-
 
 }
 
