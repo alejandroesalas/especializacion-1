@@ -27,8 +27,7 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(layout, viewGroup, false);
-        ViewHolder viewHolder = new ViewHolder(v);
-        return viewHolder;
+        return new ViewHolder(v);
     }
 
     @Override
@@ -42,8 +41,8 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewName;
-        public TextView textViewActivo;
+        private TextView textViewName;
+        private TextView textViewActivo;
 
         public ViewHolder(View itemView){
             super(itemView);

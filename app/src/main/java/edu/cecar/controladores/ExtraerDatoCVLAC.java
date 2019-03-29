@@ -16,12 +16,10 @@ public class ExtraerDatoCVLAC {
 
     }
 
-    public static Investigador  getDatos(String url) {
+    public static Investigador  getDatos(String url) throws IOException {
 
         Investigador investigador = null;
          List<LineaInvestigacion> lineas = new ArrayList<>();
-
-        try {
 
             //Se obtiene el documento HTML
             Document documentoHTML = Jsoup.connect(url).validateTLSCertificates(false).
@@ -47,24 +45,16 @@ public class ExtraerDatoCVLAC {
             investigador = new Investigador(nombre, nacionalidad,sexo,true);
             for (int i = 2; i < tablas.size(); i++) {
                 Element tr = tablas.get(i).select("tr").first();
-                if (tr!=null){
-                    if(tr.text().equalsIgnoreCase("Líneas de investigación")){
+                if (tr!=null && tr.text().equalsIgnoreCase("Líneas de investigación")){
                         Elements listas = tablas.get(i).select("li");
                         for (Element lista : listas) {
-                            //Log.i("dato lista",lista.text());
                             List<TextNode> nodos = lista.textNodes();
                             boolean isActivo = nodos.get(1).text().equalsIgnoreCase("Si");
                             lineas.add(new LineaInvestigacion(nodos.get(0).text(),isActivo));
                             investigador.setLineas(lineas);
                         }
-                    }
                 }
             }
-        } catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
 
         return investigador;
 
