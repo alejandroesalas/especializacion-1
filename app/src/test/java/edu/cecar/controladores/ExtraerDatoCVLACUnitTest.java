@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ExtraerDatoCVLACUnitTest {
 
 
     @Test
-    public void testDatosCVLAC() {
+    public void testDatosCVLAC() throws IOException {
 
          Investigador garavito = ExtraerDatoCVLAC.getDatos("https://scienti.colciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001578518");
          Investigador Jhon = ExtraerDatoCVLAC.getDatos(urls[1]);
