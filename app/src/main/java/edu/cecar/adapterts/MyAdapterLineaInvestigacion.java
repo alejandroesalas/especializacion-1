@@ -15,12 +15,11 @@ import edu.cecar.controladores.R;
 public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterLineaInvestigacion.ViewHolder>{
     private List<LineaInvestigacion> lineaInvestigacions;
     private int layout;
-    private OnItemClickListener listener;
 
-    public MyAdapterLineaInvestigacion(List<LineaInvestigacion> lineaInvestigacions, int layout, OnItemClickListener listener) {
+    public MyAdapterLineaInvestigacion(List<LineaInvestigacion> lineaInvestigacions, int layout) {
         this.lineaInvestigacions = lineaInvestigacions;
         this.layout = layout;
-        this.listener = listener;
+
     }
 
     @NonNull
@@ -32,7 +31,7 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.bind(lineaInvestigacions.get(i), listener);
+        viewHolder.bind(lineaInvestigacions.get(i));
     }
 
     @Override
@@ -50,21 +49,12 @@ public class MyAdapterLineaInvestigacion extends RecyclerView.Adapter<MyAdapterL
             this.textViewActivo = (TextView) itemView.findViewById(R.id.tvActivo);
         }
 
-        public void bind(final LineaInvestigacion lineaInvestigacion, final OnItemClickListener listener) {
+        public void bind(final LineaInvestigacion lineaInvestigacion) {
             this.textViewName.setText(lineaInvestigacion.getNombre());
             this.textViewActivo.setText(lineaInvestigacion.isActiva()?"Activo":"No Activo");
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.onItemClick(lineaInvestigacion, getAdapterPosition());
-                }
-            });
         }
     }
 
-    public interface OnItemClickListener {
-        void onItemClick(LineaInvestigacion lineaInvestigacion, int position);
-    }
+
 }
 
